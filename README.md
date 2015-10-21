@@ -52,7 +52,7 @@ Other configuration options:
   * `port` - The port to use for your configured CAS `host`. Optional if using `url`.
   * `ssl` - TRUE to connect to your CAS server over SSL. Optional if using `url`.
   * `service_validate_url` - The URL to use to validate a user. Defaults to `'/serviceValidate'`.
-  * `callback_url` - The URL custom URL path which CAS uses to call back to the service.  Defaults to `/users/auth/cas/callback`.
+  * `callback_url` - The URL custom URL path which CAS uses to call back to the service.  Defaults to `/users/auth/cas3/callback`.
   * `logout_url` - The URL to use to logout a user. Defaults to `'/logout'`.
   * `login_url` - Defines the URL used to prompt users for their login information. Defaults to `/login` If no `host` is configured, the host application's domain will be used.
   * `uid_field` - The user data attribute to use as your user's unique identifier. Defaults to `'user'` (which usually contains the user's login name).
@@ -96,7 +96,7 @@ Your new settings should look similar to this:
 provider :cas3,
          host:      'cas.example.com',
          login_url: '/cas/login',
-  	     service_validate_url: '/cas/serviceValidate'
+  	     service_validate_url: '/cas/p3/serviceValidate'
 ```
 
 If you encounter problems wih SSL certificates you may want to set the `ca_path` parameter or activate `disable_ssl_verification` (not recommended).
