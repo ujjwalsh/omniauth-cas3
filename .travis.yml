@@ -6,5 +6,6 @@ rvm:
 branches:
   only:
     - master
+    - /.*-test$/
 before_install:
   - gem install bundler
