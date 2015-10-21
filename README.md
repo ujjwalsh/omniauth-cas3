@@ -1,13 +1,13 @@
 # OmniAuth CAS Strategy [![Gem Version][version_badge]][version] [![Build Status][travis_status]][travis]
 
-[version_badge]: https://badge.fury.io/rb/omniauth-cas.png
-[version]: http://badge.fury.io/rb/omniauth-cas
-[travis]: http://travis-ci.org/dlindahl/omniauth-cas
-[travis_status]: https://secure.travis-ci.org/dlindahl/omniauth-cas.png
-[releases]: https://github.com/dlindahl/omniauth-cas/releases
+[version_badge]: https://badge.fury.io/rb/omniauth-cas3.png
+[version]: http://badge.fury.io/rb/omniauth-cas3
+[travis]: http://travis-ci.org/tduehr/omniauth-cas3
+[travis_status]: https://secure.travis-ci.org/dlindahl/omniauth-cas3.png
+[releases]: https://github.com/tduehr/omniauth-cas3/releases
 
 This is a OmniAuth 1.0 compatible port of the previously available
-[OmniAuth CAS strategy][old_omniauth_cas] that was bundled with OmniAuth 0.3.
+[OmniAuth CAS strategy][old_omniauth_cas] that was bundled with OmniAuth 0.3. This strategy haas also been updated for CAS protocol version 3.0 and patched to deal with namespace issues.
 
 * [View the documentation][document_up]
 * [Changelog][releases]
@@ -16,7 +16,7 @@ This is a OmniAuth 1.0 compatible port of the previously available
 
 Add this line to your application's Gemfile:
 
-    gem 'omniauth-cas'
+    gem 'omniauth-cas3'
 
 And then execute:
 
@@ -24,7 +24,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install omniauth-cas
+    $ gem install omniauth-cas3
 
 ## Usage
 
@@ -32,7 +32,7 @@ Use like any other OmniAuth strategy:
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :cas, host: 'cas.yourdomain.com'
+  provider :cas3, host: 'cas.yourdomain.com'
 end
 ```
 
@@ -64,7 +64,7 @@ Other configuration options:
     info from other sources.
 
     ```ruby
-    provider :cas,
+    provider :cas3,
              fetch_raw_info: lambda { |strategy, options, ticket, user_info|
                ExternalService.get(user_info[:user]).attributes
             }
@@ -93,7 +93,7 @@ provider :CAS, cas_server: 'https://cas.example.com/cas/'
 Your new settings should look similar to this:
 
 ```ruby
-provider :cas,
+provider :cas3,
          host:      'cas.example.com',
          login_url: '/cas/login',
   	     service_validate_url: '/cas/serviceValidate'
@@ -113,11 +113,12 @@ If you encounter problems wih SSL certificates you may want to set the `ca_path`
 
 Special thanks go out to the following people
 
+  * @dlindahl For the original work in porting this from OmniAuth 0.3
   * Phillip Aldridge (@iterateNZ) and JB Barth (@jbbarth) for helping out with Issue #3
   * Elber Ribeiro (@dynaum) for Ubuntu SSL configuration support
   * @rbq for README updates and OmniAuth 0.3 migration guide
 
 [old_omniauth_cas]: https://github.com/intridea/omniauth/blob/0-3-stable/oa-enterprise/lib/omniauth/strategies/cas.rb
-[document_up]: http://dlindahl.github.com/omniauth-cas/
+[document_up]: http://tduehr.github.com/omniauth-cas3/
 [net_http]: http://ruby-doc.org/stdlib-1.9.3/libdoc/net/http/rdoc/Net/HTTP.html
 [sso]: https://wiki.jasig.org/display/CASUM/Single+Sign+Out
